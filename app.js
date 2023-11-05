@@ -8,14 +8,16 @@ const log = (req, res, next) => {
     next();
 };
 
-//identificação da rota e da const require associada
-app.use('/livros', livros);
+//deve fica antes de todas as rotas para ser possivel usar json
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Olá... Bem vindo!');
 });
 
-app.use(express.json());
+//identificação da rota e da const require associada
+app.use('/livros', livros);
+
 app.post('/filmes', (req, res) => {
   const { titulo, genero } = req.body;
   res.send(`Filme : ${titulo} - Gênero: ${genero}, recebido...`);
