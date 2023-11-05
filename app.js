@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3001;
 const livros = require('./livros');
+const cors = require('cors');
 
 const log = (req, res, next) => {
     console.log(`................ Acesso em ${new Date()}`);
@@ -10,6 +11,7 @@ const log = (req, res, next) => {
 
 //deve fica antes de todas as rotas para ser possivel usar json
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Olá... Bem vindo!');
