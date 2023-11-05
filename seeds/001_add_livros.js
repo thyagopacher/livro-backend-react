@@ -3,11 +3,9 @@
  * @returns { Promise<void> } 
  */
 exports.seed = async function(knex) {
-  // Deletes ALL existing entries
-  await knex('table_name').del()
-  await knex('table_name').insert([
-    {id: 1, colName: 'rowValue1'},
-    {id: 2, colName: 'rowValue2'},
-    {id: 3, colName: 'rowValue3'}
+  await knex('livros').del()
+  await knex('livros').insert([
+    {titulo: "Web Design Responsivo", autor: "Mauricio Samy Silva", ano: 2014, preco: 73.5, foto: "https:://s3.novatec.com.br/capas/9788575223925.jpg"},
+    {titulo: "Proteção moderna de dados", autor: "W. Curtis Preston", ano: 2021, preco: 97.9, foto: "https:://s3.novatec.com.br/capas/9786586057843.jpg"}
   ]);
 };
